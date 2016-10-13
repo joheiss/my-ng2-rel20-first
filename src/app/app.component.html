@@ -1,3 +1,27 @@
 <h1>
-  {{title}}
+    {{"APP_TITLE" | translate}}
 </h1>
+<!--
+<nav routerLinkActive="menu-active">
+    <a routerLink=""
+       routerLinkActive="menu-active"
+       [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLinkActive="menu-active"
+       routerLink="users">Users</a>
+    <a routerLinkActive="menu-active"
+       routerLink="about">About</a>
+</nav>
+-->
+<nav>
+    <a *ngFor="let nav of _navs"
+       [routerLink]="nav.url"
+       routerLinkActive="menu-active"
+       [routerLinkActiveOptions]="{exact:true}">
+        {{nav.content}}
+    </a>
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name="notepad"></router-outlet>
+<!--
+<jo-rep-user-admin></jo-rep-user-admin>
+-->

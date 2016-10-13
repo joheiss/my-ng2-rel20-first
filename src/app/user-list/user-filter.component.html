@@ -1,0 +1,7 @@
+<div>
+    <select class="form-control" #filterList (change)="onFilter(filterList.value)">
+        <option *ngFor="let filter of filters" value="{{filter?.action}}">
+            {{filter?.description}}
+        </option>
+    </select>
+</div>

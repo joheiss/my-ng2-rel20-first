@@ -1,0 +1,66 @@
+<div *ngIf="mode">
+    <h2>{{ "USER_DETAILS" | translate }}</h2>
+    <form [formGroup]="_form" novalidate class="form-horizontal" (ngSubmit)="onSave(user)">
+        <div class="form-group">
+            <label for="userid" class="col-md-2 form-control-label">{{ "USER_ID" | translate }}</label>
+            <div class="col-md-10">
+                <input type="text" id="userid" name="userid" class="form-control"
+                       formControlName="userId">
+                <div class="field-error-message" *ngIf="_form.controls.userId?.dirty && _form.controls.userId?.errors?.required">
+                    Field is mandatory
+                </div>
+                <div class="field-error-message" *ngIf="_form.controls.userId?.dirty && _form.controls.userId?.errors?.pattern">
+                    Field must be numeric
+                </div>
+                <div class="debug">
+                    {{ _form.controls.userId?.errors | json }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-md-2 form-control-label">{{ "USER_NAME" | translate }}</label>
+            <div class="col-md-10">
+                <input type="text" id="username" name="username" class="form-control"
+                       formControlName="userName">
+                <div class="field-error-message" *ngIf="_form.controls.userName?.dirty && _form.controls.userName?.errors?.required">
+                    Field is mandatory
+                </div>
+                <div class="field-error-message" *ngIf="_form.controls.userName?.dirty && _form.controls.userName?.errors?.minlength">
+                    Field must be at least {{ _form.controls.userName?.errors?.minlength?.requiredLength }} characters long
+                </div>
+                <div class="debug">
+                    {{ _form.controls.userName?.errors | json }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="locked" class="col-md-2 form-control-label">{{ "USER_LOCKED" | translate }}</label>
+            <div class="col-md-10">
+                <input type="checkbox" id="locked" name="locked" class="checkbox"
+                       formControlName="locked">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="roles" class="col-md-2 form-control-label">{{ "USER_ROLES" | translate }}</label>
+            <div class="col-md-10">
+                <input type="text" id="roles" name="roles" class="form-control"
+                       formControlName="roles">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success"
+                    [disabled]="mode === 'ADD' && (!_form.controls?.userId.valid || !_form.controls?.userName.valid)">
+                    {{ "BUTN_SAVE" | translate}}
+                </button>
+                <button (click)="onCancel()" class="btn btn-warning">{{ "BUTN_CANCEL" | translate}}</button>
+                <button (click)="onRemove(user)" class="btn btn-danger" *ngIf="mode === 'EDIT'">
+                    {{ "BUTN_REMOVE" | translate}}
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="debug">
+        {{ user | json }}
+    </div>
+</div>

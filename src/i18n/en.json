@@ -1,0 +1,18 @@
+{
+    "APP_TITLE": "Repertorium - Administration Console",
+    "BUTN_ADD": "Add",
+    "BUTN_CANCEL": "Cancel",
+    "BUTN_REMOVE": "Remove",
+    "BUTN_SAVE": "Save",
+    "USER_DETAILS": "User Details",
+    "USER_ID": "User ID",
+    "USER_LIST": "List of Users",
+    "USER_LOCKED?": "Locked?",
+    "USER_LOCKED": "locked",
+    "USER_NAME": "User name",
+    "USER_ROLES": "Roles",
+    "SHOW_ALL": "All Users",
+    "SHOW_ADMINS": "Administrators",
+    "SHOW_LOCKED": "Locked Users",
+    "SHOW_UNLOCKED": "Unlocked Users"
+}

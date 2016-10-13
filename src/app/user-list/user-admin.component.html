@@ -1,0 +1,28 @@
+<div>
+    <jo-rep-user-details-md
+        [mode]="mode"
+        [user]="selectedUser"
+        (added)="onAdded($event)"
+        (cancelled)="onCancelled()"
+        (changed)="onChanged($event)"
+        (removed)="onRemoved($event)">
+    </jo-rep-user-details-md>
+</div>
+<div>
+    <h2>
+        {{"USER_LIST" | translate}}
+    </h2>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <button (click)="onAdd()" [hidden]="mode" class="btn btn-primary">
+                {{ "BUTN_ADD" | translate}}
+            </button>
+        </div>
+        <div class="col-md-10">
+            <jo-rep-user-filter
+                [filters]="_userService.filters$ | async"
+                (filterUpdated)="onFilterUpdated($event)"></jo-rep-user-filter>
+        </div>
+    </div>
+    <jo-rep-user-list [users]="_userService.users$ | async" (clicked)="onClick($event)"></jo-rep-user-list>
+</div>

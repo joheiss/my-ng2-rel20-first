@@ -1,0 +1,18 @@
+{
+    "APP_TITLE": "Repertorium - Zentrale Administration",
+    "BUTN_ADD": "Hinzufügen",
+    "BUTN_CANCEL": "Abbrechen",
+    "BUTN_REMOVE": "Löschen",
+    "BUTN_SAVE": "Speichern",
+    "USER_DETAILS": "Benutzerpflege",
+    "USER_ID": "Benutzerkennung",
+    "USER_LIST": "Benutzerliste",
+    "USER_LOCKED?": "Gesperrt?",
+    "USER_LOCKED": "gesperrt",
+    "USER_NAME": "Benutzername",
+    "USER_ROLES": "Rollen",
+    "SHOW_ALL": "Alle Benutzer",
+    "SHOW_ADMINS": "Administratoren",
+    "SHOW_LOCKED": "Gesperrte Benutzer",
+    "SHOW_UNLOCKED": "Nicht gesperrte Benutzer"
+}

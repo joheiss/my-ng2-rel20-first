@@ -1,0 +1,71 @@
+<div *ngIf="mode">
+    <h2>{{ "USER_DETAILS" | translate }}</h2>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="userid" class="col-md-2 form-control-label">{{ "USER_ID" | translate }}</label>
+            <div class="col-md-10">
+                <input type="text" id="userid" name="userid" class="form-control"
+                       [disabled]="mode != 'ADD'"
+                       [required]="mode === 'ADD'"
+                       pattern="[0-9]+"
+                       [(ngModel)]="user.userId"
+                        #userid="ngModel">
+                <div class="field-error-message" *ngIf="userid?.dirty && userid?.errors?.required">
+                    Field is mandatory
+                </div>
+                <div class="field-error-message" *ngIf="userid?.dirty && userid?.errors?.pattern">
+                    Field must be numeric
+                </div>
+                <div class="debug">
+                    {{ userid?.errors | json }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-md-2 form-control-label">{{ "USER_NAME" | translate }}</label>
+            <div class="col-md-10">
+                <input type="text" id="username" name="username" class="form-control"
+                       [required]="true"
+                       minlength="3"
+                       [(ngModel)]="user.userName"
+                        #username="ngModel">
+                <div class="field-error-message" *ngIf="username.dirty && username?.errors?.required">
+                    Field is mandatory
+                </div>
+                <div class="field-error-message" *ngIf="username.dirty && username?.errors?.minlength">
+                    Field must be at least {{ username?.errors?.minlength?.requiredLength }} characters long
+                </div>
+                <div class="debug">
+                    {{ username?.errors | json }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="locked" class="col-md-2 form-control-label">{{ "USER_LOCKED" | translate }}</label>
+            <div class="col-md-10">
+                <input type="checkbox" id="locked" name="locked" class="checkbox" [(ngModel)]="user.locked">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="roles" class="col-md-2 form-control-label">{{ "USER_ROLES" | translate }}</label>
+            <div class="col-md-10">
+                <input type="text" id="roles" name="roles" class="form-control" [(ngModel)]="user.roles">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button (click)="onSave(user)" class="btn btn-success"
+                    [disabled]="mode === 'ADD' && (!userid.valid || !username.valid)">
+                    {{ "BUTN_SAVE" | translate}}
+                </button>
+                <button (click)="onCancel()" class="btn btn-warning">{{ "BUTN_CANCEL" | translate}}</button>
+                <button (click)="onRemove(user)" class="btn btn-danger" *ngIf="mode === 'EDIT'">
+                    {{ "BUTN_REMOVE" | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="debug">
+        {{ user | json }}
+    </div>
+</div>

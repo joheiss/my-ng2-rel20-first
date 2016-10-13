@@ -1,0 +1,27 @@
+h1 {
+    color: #c77405;
+}
+
+h2 {
+    color: #8a4182;
+}
+
+a.menu-active {
+    color: #ee1c1b;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.top-menu {
+    margin-left: 50px;
+}
+
+.top-menu li {
+    box-shadow: none !important;
+}
+
+ul.top-menu > li > a.menu-active {
+    color: #ee1c1b;
+    font-weight: bold;
+    text-decoration: underline;
+}

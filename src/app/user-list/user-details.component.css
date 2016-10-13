@@ -1,0 +1,6 @@
+.ng-dirty.ng-invalid {
+    border: 2px solid #ff2118;
+}
+.field-error-message {
+    color: #ff2118;
+}
